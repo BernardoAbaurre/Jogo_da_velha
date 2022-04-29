@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da velha</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Jogo da velha</h1>
+    <h2 id="rodadas">Rodadas:</h2>
+    <input type="button" value="reset" onclick="reset()">
+    <section id="area">
+        <div id="placarPlayer">0</div>
+        <div id="grade">
+            <div class="campo" id="10" onclick="jogar(0)"><img id="0" class="img" src="" hidden></div>
+            <div class="campo" id="11" onclick="jogar(1)"><img id="1" class="img" src="" hidden></div>
+            <div class="campo" id="12" onclick="jogar(2)"><img id="2" class="img" src="" hidden></div>
+            <div class="campo" id="13" onclick="jogar(3)"><img id="3" class="img" src="" hidden></div>
+            <div class="campo" id="14" onclick="jogar(4)"><img id="4" class="img" src="" hidden></div>
+            <div class="campo" id="15" onclick="jogar(5)"><img id="5" class="img" src="" hidden></div>
+            <div class="campo" id="16" onclick="jogar(6)"><img id="6" class="img" src="" hidden></div>
+            <div class="campo" id="17" onclick="jogar(7)"><img id="7" class="img" src="" hidden></div>
+            <div class="campo" id="18" onclick="jogar(8)"><img id="8" class="img" src="" hidden></div>
+        </div>
+        <div id="placarIA">0</div>
+    </section>
+    <script src="script.js"></script> 
+</body>
+</html>
