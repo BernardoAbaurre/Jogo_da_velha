@@ -1,142 +1,129 @@
 var posicoes = [ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0]
 var jogadas = 0
-var placarPlayer = 0
-var placarIA = 0
+var placarPlayer1 = 0
+var placarPlayer2 = 0
 var rodadas = 0
+var delay = 200
 function jogar(campo)
 {
     var img = document.getElementById(campo)
     var div = document.getElementById(campo + 10)
-    posicoes[campo] = 1
-    img.src = "imagens/x.png"
-    img.removeAttribute("hidden")
-    div.removeAttribute("onclick")
-    jogadas ++
-    verificarPlayer()
-}
-
-// jogada da IA
-function jogarIA()
-{
-    var campoIA = Math.floor(Math.random() * 9)
-    var img = document.getElementById(campoIA)
-    var div = document.getElementById(campoIA + 10)
-    if (posicoes[campoIA] == 0)
+    jogadas++
+    if(jogadas % 2 == 0)//jogada P1
     {
-        posicoes[campoIA] = -1
+        posicoes[campo] = 1
+        img.src = "imagens/x.png"
+        img.removeAttribute("hidden")
+        div.removeAttribute("onclick")
+        verificarPlayer1()
+    }
+    else//jogada P2
+    {
+        posicoes[campo] = -1
         img.src = "imagens/circulo.png"
         img.removeAttribute("hidden")
         div.removeAttribute("onclick")
-        jogadas ++
-        pensar()
-        verificarIA()
-    }
-    else{
-        jogarIA()
+        verificarPlayer2()
     }
 }
 
-/*VERIFICAR VITÓRIA DO PLAYER*/
+/*VERIFICAR VITÓRIA DO PLAYER1*/
 
-function verificarPlayer()
+function verificarPlayer1()
 {
     // horizontal
     if (posicoes[0] + posicoes[1] + posicoes[2] == 3)
     {
-        setTimeout(vitoriaPlayer, 100)
+        setTimeout(vitoriaPlayer,delay)
     }
     else if (posicoes[3] + posicoes[4] + posicoes[5] == 3)
     {
-        setTimeout(vitoriaPlayer, 100)
+        setTimeout(vitoriaPlayer,delay)
     }
     else if (posicoes[6] + posicoes[7] + posicoes[8] == 3)
     {
-        setTimeout(vitoriaPlayer, 100)
+        setTimeout(vitoriaPlayer,delay)
     }
 
     //vertical
     else if (posicoes[0] + posicoes[3] + posicoes[6] == 3)
     {
-        setTimeout(vitoriaPlayer, 100)
+        setTimeout(vitoriaPlayer,delay)
     }
     else if (posicoes[1] + posicoes[4] + posicoes[7] == 3)
     {
-        setTimeout(vitoriaPlayer, 100)
+        setTimeout(vitoriaPlayer,delay)
     }
     else if (posicoes[2] + posicoes[5] + posicoes[8] == 3)
     {
-        setTimeout(vitoriaPlayer, 100)
+        setTimeout(vitoriaPlayer,delay)
     }
 
     //diagonal
     else if (posicoes[0] + posicoes[4] + posicoes[8] == 3)
     {
-        setTimeout(vitoriaPlayer, 100)
+        setTimeout(vitoriaPlayer,delay)
     }
     else if (posicoes[6] + posicoes[4] + posicoes[2] == 3)
     {
-        setTimeout(vitoriaPlayer, 100)
-    }
-    //sem vitoria
-    else 
-    {
-        if(jogadas != 9)
-        {
-            jogarIA()
-        }
-        else
-        {
-            empate()
-        }
-    }
-}
-
-/*VERIFICAR VITÓRIA DA IA*/
-function verificarIA()
-{
-    // horizontal
-    if (posicoes[0] + posicoes[1] + posicoes[2] == -3)
-    {
-        setTimeout(vitoriaIA, 400)
-    }
-    else if (posicoes[3] + posicoes[4] + posicoes[5] == -3)
-    {
-        setTimeout(vitoriaIA, 400)
-    }
-    else if (posicoes[6] + posicoes[7] + posicoes[8] == -3)
-    {
-        setTimeout(vitoriaIA, 400)
-    }
-
-    //vertical
-    else if (posicoes[0] + posicoes[3] + posicoes[6] == -3)
-    {
-        setTimeout(vitoriaIA, 400)
-    }
-    else if (posicoes[1] + posicoes[4] + posicoes[7] == -3)
-    {
-        setTimeout(vitoriaIA, 400)
-    }
-    else if (posicoes[2] + posicoes[5] + posicoes[8] == -3)
-    {
-        setTimeout(vitoriaIA, 400)
-    }
-
-    //diagonal
-    else if (posicoes[0] + posicoes[4] + posicoes[8] == -3)
-    {
-        setTimeout(vitoriaIA, 400)
-    }
-    else if (posicoes[6] + posicoes[4] + posicoes[2] == -3)
-    {
-        setTimeout(vitoriaIA, 400)
+        setTimeout(vitoriaPlayer,delay)
     }
     //sem vitoria
     else 
     {
         if(jogadas == 9)
         {
-            empate()
+            setTimeout(empate,delay)
+        }
+    }
+}
+
+/*VERIFICAR VITÓRIA DA IA*/
+function verificarPlayer2()
+{
+    // horizontal
+    if (posicoes[0] + posicoes[1] + posicoes[2] == -3)
+    {
+        setTimeout(vitoriaIA, delay)
+    }
+    else if (posicoes[3] + posicoes[4] + posicoes[5] == -3)
+    {
+        setTimeout(vitoriaIA, delay)
+    }
+    else if (posicoes[6] + posicoes[7] + posicoes[8] == -3)
+    {
+        setTimeout(vitoriaIA, delay)
+    }
+
+    //vertical
+    else if (posicoes[0] + posicoes[3] + posicoes[6] == -3)
+    {
+        setTimeout(vitoriaIA, delay)
+    }
+    else if (posicoes[1] + posicoes[4] + posicoes[7] == -3)
+    {
+        setTimeout(vitoriaIA, delay)
+    }
+    else if (posicoes[2] + posicoes[5] + posicoes[8] == -3)
+    {
+        setTimeout(vitoriaIA, delay)
+    }
+
+    //diagonal
+    else if (posicoes[0] + posicoes[4] + posicoes[8] == -3)
+    {
+        setTimeout(vitoriaIA, delay)
+    }
+    else if (posicoes[6] + posicoes[4] + posicoes[2] == -3)
+    {
+        setTimeout(vitoriaIA, delay)
+    }
+    //sem vitoria
+    else 
+    {
+        if(jogadas == 9)
+        {
+            setTimeout(empate,delay)
         }
     }
 }
@@ -144,8 +131,8 @@ function verificarIA()
 //vitória player
 function vitoriaPlayer()
 {
-    placarPlayer ++
-    document.getElementById('placarPlayer').innerHTML = placarPlayer
+    placarPlayer1 ++
+    document.getElementById('placarPlayer1').innerHTML = placarPlayer1
     resetRodada()
     rodadas ++
     document.getElementById('rodadas').innerHTML = `Rodadas: ${rodadas}`
@@ -154,8 +141,8 @@ function vitoriaPlayer()
 //vitória IA
 function vitoriaIA()
 {
-    placarIA ++
-    document.getElementById('placarIA').innerHTML = placarIA
+    placarPlayer2++
+    document.getElementById('placarPlayer2').innerHTML = placarPlayer2
     resetRodada()
     rodadas ++
     document.getElementById('rodadas').innerHTML = `Rodadas: ${rodadas}`
@@ -165,15 +152,14 @@ function vitoriaIA()
 function empate()
 {
     window.alert('Deu Velha!')
+    resetRodada()
     rodadas++
     document.getElementById('rodadas').innerHTML = `Rodadas: ${rodadas}`
-    resetRodada()
 }
 
 //reset rodada
 function resetRodada()
 {
-    window
     posicoes = [ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0]
     jogadas = 0
     var divSelect = document.querySelectorAll('.campo')
@@ -193,27 +179,4 @@ function resetRodada()
 function reset()
 {
     location.reload()
-}
-
-//IA inteligente
-function pensar()
-{
-    //possibilidades horizonatais
-    if(posicoes[0] == 1 && posicoes[1] == 1 && posicoes[2] == 0) // XXO
-    {
-       return 2
-    }
-    else if(posicoes[0] == 1 && posicoes[1] == 0 && posicoes[2] == 1) // XOX
-    {
-       return 1
-    }
-    else if(posicoes[0] == 0 && posicoes[1] == 1 && posicoes[2] == 1) // OXX
-    {
-       return 3
-    }
-}
-
-function random()
-{
-    
 }

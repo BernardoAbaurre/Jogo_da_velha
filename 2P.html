@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da velha</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/style2P.css">
 </head>
 <body>
     <h1>Jogo da velha</h1>
     <hr>
-    <h2>Jogando com IA</h2>
+    <h2>Jogando com amigo</h2>
     <div id="modos">
         <a href="index.html"><button class="modo" id="btnM1P">1P</button></a>
         <a href="2P.html"><button class="modo" id="btnM2P">2P</button></a>
@@ -18,7 +18,7 @@
     <h2 id="rodadas">Rodadas:</h2>
     <input type="button" value="reset" onclick="reset()">
     <section id="area">
-        <div id="placarPlayer">0</div>
+        <div id="placarPlayer1">0</div>
         <div id="grade">
             <div class="campo" id="10" onclick="jogar(0)"><img id="0" class="img" src="" hidden></div>
             <div class="campo" id="11" onclick="jogar(1)"><img id="1" class="img" src="" hidden></div>
@@ -30,8 +30,8 @@
             <div class="campo" id="17" onclick="jogar(7)"><img id="7" class="img" src="" hidden></div>
             <div class="campo" id="18" onclick="jogar(8)"><img id="8" class="img" src="" hidden></div>
         </div>
-        <div id="placarIA">0</div>
+        <div id="placarPlayer2">0</div>
     </section>
-    <script src="script.js"></script> 
+    <script src="script2P.js"></script> 
 </body>
 </html>

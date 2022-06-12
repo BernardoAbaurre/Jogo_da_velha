@@ -24,13 +24,13 @@ body{
     height: 90px;
     margin: auto;
 }
-#placarPlayer{
+#placarPlayer1{
     margin: auto;
     margin-right: 10px;
     font-size: 30pt;
     color: blue;
 }
-#placarIA{
+#placarPlayer2{
     margin: auto;
     margin-left: 10px;
     font-size: 30pt;
